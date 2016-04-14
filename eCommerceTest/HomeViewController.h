@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Products.h"
 
 @interface HomeViewController : UITableViewController
 

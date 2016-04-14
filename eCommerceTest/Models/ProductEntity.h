@@ -12,11 +12,12 @@
 @interface ProductEntity : NSObject
 
 @property (nonatomic, assign) int productID;
+@property (nonatomic, assign) int productOrder;
 @property (nonatomic, strong) NSString *productName;
 @property (nonatomic, strong) NSString *productImageURL;
 @property (nonatomic, assign) double productPrice;
 @property (nonatomic, strong) ProductCategoryEntity *productCategory;
 
-- (instancetype)initWithProductID:(int)productID Name:(NSString *)productName Image:(NSString *)productImageURL Price:(double)productPrice andCategory:(ProductCategoryEntity *)productCategory;
+- (instancetype)initWithProductID:(int)productID Name:(NSString *)productName Image:(NSString *)productImageURL Price:(double)productPrice Category:(ProductCategoryEntity *)productCategory andProductOrder:(int)productOrder;
 
 @end

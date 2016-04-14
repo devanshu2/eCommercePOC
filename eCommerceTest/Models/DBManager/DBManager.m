@@ -63,12 +63,12 @@
                                          @{COLUMN_CATEGORY_ID : @2, COLUMN_CATEGORY_NAME : @"Furniture", COLUMN_CATEGORY_ORDER : @1}
                                          ];
     NSArray *productsTableSampleData = @[
-                                         @{COLUMN_PRODUCT_ID : @1, COLUMN_PRODUCT_NAME : @"Microwave oven", COLUMN_PRODUCT_IMAGE_URL : @"https://s20.postimg.org/em55k8szx/microwave-oven.jpg", COLUMN_PRODUCT_PRICE : @9499, COLUMN_PRODUCT_CATEGORY : @1},
-                                         @{COLUMN_PRODUCT_ID : @2, COLUMN_PRODUCT_NAME : @"Television", COLUMN_PRODUCT_IMAGE_URL : @"https://s20.postimg.org/lo336fwlp/tv.jpg", COLUMN_PRODUCT_PRICE : @12000, COLUMN_PRODUCT_CATEGORY : @1},
-                                         @{COLUMN_PRODUCT_ID : @3, COLUMN_PRODUCT_NAME : @"Vacuum Cleaner", COLUMN_PRODUCT_IMAGE_URL : @"https://s20.postimg.org/j5he5ravh/vacuum-cleaner.jpg", COLUMN_PRODUCT_PRICE : @6499, COLUMN_PRODUCT_CATEGORY : @1},
-                                         @{COLUMN_PRODUCT_ID : @4, COLUMN_PRODUCT_NAME : @"Table", COLUMN_PRODUCT_IMAGE_URL : @"https://s20.postimg.org/rmcb2xq6l/table.jpg", COLUMN_PRODUCT_PRICE : @3999, COLUMN_PRODUCT_CATEGORY : @2},
-                                         @{COLUMN_PRODUCT_ID : @5, COLUMN_PRODUCT_NAME : @"Chair", COLUMN_PRODUCT_IMAGE_URL : @"https://s20.postimg.org/tzl22gpu5/chair.jpg", COLUMN_PRODUCT_PRICE : @1499, COLUMN_PRODUCT_CATEGORY : @2},
-                                         @{COLUMN_PRODUCT_ID : @6, COLUMN_PRODUCT_NAME : @"Almirah", COLUMN_PRODUCT_IMAGE_URL : @"https://s20.postimg.org/rxtrfp6ml/almirah.jpg", COLUMN_PRODUCT_PRICE : @8999, COLUMN_PRODUCT_CATEGORY : @2}
+                                         @{COLUMN_PRODUCT_ID : @1, COLUMN_PRODUCT_NAME : @"Microwave oven", COLUMN_PRODUCT_IMAGE_URL : @"https://s20.postimg.org/em55k8szx/microwave-oven.jpg", COLUMN_PRODUCT_PRICE : @9499, COLUMN_PRODUCT_CATEGORY : @1, COLUMN_PRODUCT_ORDER : @1},
+                                         @{COLUMN_PRODUCT_ID : @2, COLUMN_PRODUCT_NAME : @"Television", COLUMN_PRODUCT_IMAGE_URL : @"https://s20.postimg.org/lo336fwlp/tv.jpg", COLUMN_PRODUCT_PRICE : @12000, COLUMN_PRODUCT_CATEGORY : @1, COLUMN_PRODUCT_ORDER : @2},
+                                         @{COLUMN_PRODUCT_ID : @3, COLUMN_PRODUCT_NAME : @"Vacuum Cleaner", COLUMN_PRODUCT_IMAGE_URL : @"https://s20.postimg.org/j5he5ravh/vacuum-cleaner.jpg", COLUMN_PRODUCT_PRICE : @6499, COLUMN_PRODUCT_CATEGORY : @1, COLUMN_PRODUCT_ORDER : @3},
+                                         @{COLUMN_PRODUCT_ID : @4, COLUMN_PRODUCT_NAME : @"Table", COLUMN_PRODUCT_IMAGE_URL : @"https://s20.postimg.org/rmcb2xq6l/table.jpg", COLUMN_PRODUCT_PRICE : @3999, COLUMN_PRODUCT_CATEGORY : @2, COLUMN_PRODUCT_ORDER : @4},
+                                         @{COLUMN_PRODUCT_ID : @5, COLUMN_PRODUCT_NAME : @"Chair", COLUMN_PRODUCT_IMAGE_URL : @"https://s20.postimg.org/tzl22gpu5/chair.jpg", COLUMN_PRODUCT_PRICE : @1499, COLUMN_PRODUCT_CATEGORY : @2, COLUMN_PRODUCT_ORDER : @5},
+                                         @{COLUMN_PRODUCT_ID : @6, COLUMN_PRODUCT_NAME : @"Almirah", COLUMN_PRODUCT_IMAGE_URL : @"https://s20.postimg.org/rxtrfp6ml/almirah.jpg", COLUMN_PRODUCT_PRICE : @8999, COLUMN_PRODUCT_CATEGORY : @2, COLUMN_PRODUCT_ORDER : @6}
                                          ];
     for (NSDictionary *categoryData in categoryTableSampleData) {
         int categoryID = [[categoryData objectForKey:COLUMN_CATEGORY_ID] intValue];
@@ -83,7 +83,8 @@
         NSString *productImageURL = [productData objectForKey:COLUMN_PRODUCT_IMAGE_URL];
         double productPrice = [[productData objectForKey:COLUMN_PRODUCT_PRICE] doubleValue];
         int productCategoryID = [[productData objectForKey:COLUMN_PRODUCT_CATEGORY] intValue];
-        [self insertRecordInProductWithID:productID Name:productName Image:productImageURL Price:productPrice andCategory:productCategoryID];
+        int productOrder = [[productData objectForKey:COLUMN_PRODUCT_ORDER] intValue];
+        [self insertRecordInProductWithID:productID Name:productName Image:productImageURL Price:productPrice category:productCategoryID andProductOrder:productOrder];
     }
 }
 
@@ -139,14 +140,14 @@
     sqlite3_close(sqlite3Database);
 }
 
--(void)insertRecordInProductWithID:(int)productID Name:(NSString *)productName Image:(NSString *)productImageURL Price:(double)productPrice andCategory:(int)productCategoryID{
+-(void)insertRecordInProductWithID:(int)productID Name:(NSString *)productName Image:(NSString *)productImageURL Price:(double)productPrice category:(int)productCategoryID andProductOrder:(int)productOrder{
     // Create a sqlite object.
     sqlite3 *sqlite3Database;
     
     // Set the database file path.
     NSString *databasePath = [self.documentsDirectory stringByAppendingPathComponent:self.databaseFilename];
     
-    NSString *theQuery = [NSString stringWithFormat:@"INSERT INTO %@(%@, %@, %@, %@, %@) VALUES(?,?,?,?,?)", TABLE_PRODUCT, COLUMN_PRODUCT_ID, COLUMN_PRODUCT_NAME, COLUMN_PRODUCT_IMAGE_URL, COLUMN_PRODUCT_PRICE, COLUMN_PRODUCT_CATEGORY];
+    NSString *theQuery = [NSString stringWithFormat:@"INSERT INTO %@(%@, %@, %@, %@, %@, %@) VALUES(?,?,?,?,?, ?)", TABLE_PRODUCT, COLUMN_PRODUCT_ID, COLUMN_PRODUCT_NAME, COLUMN_PRODUCT_IMAGE_URL, COLUMN_PRODUCT_PRICE, COLUMN_PRODUCT_CATEGORY, COLUMN_PRODUCT_ORDER];
     const char *query = [theQuery UTF8String];
     
     // Open the database.
@@ -164,6 +165,7 @@
             sqlite3_bind_text(compiledStatement, 3, [productImageURL UTF8String], -1, SQLITE_TRANSIENT);
             sqlite3_bind_double(compiledStatement, 4, productPrice);
             sqlite3_bind_int(compiledStatement, 5, productCategoryID);
+            sqlite3_bind_int(compiledStatement, 6, productOrder);
             
             int executeQueryResults = sqlite3_step(compiledStatement);
             if (executeQueryResults == SQLITE_DONE) {
@@ -251,12 +253,12 @@
                 // In this case data must be loaded from the database.
                 
                 // Declare an array to keep the data for each fetched row.
-                NSMutableArray *arrDataRow;
+                NSMutableDictionary *theDataRow;
                 
 				// Loop through the results and add them to the results array row by row.
 				while(sqlite3_step(compiledStatement) == SQLITE_ROW) {
 					// Initialize the mutable array that will contain the data of a fetched row.
-                    arrDataRow = [[NSMutableArray alloc] init];
+                    theDataRow = [@{} mutableCopy];
                     
                     // Get the total number of columns.
                     int totalColumns = sqlite3_column_count(compiledStatement);
@@ -267,9 +269,10 @@
 						char *dbDataAsChars = (char *)sqlite3_column_text(compiledStatement, i);
                         
                         // If there are contents in the currenct column (field) then add them to the current row array.
+                        id theValue;
 						if (dbDataAsChars != NULL) {
                             // Convert the characters to string.
-							[arrDataRow addObject:[NSString  stringWithUTF8String:dbDataAsChars]];
+							theValue = [NSString  stringWithUTF8String:dbDataAsChars];
 						}
                         
                         // Keep the current column name.
@@ -277,11 +280,12 @@
                             dbDataAsChars = (char *)sqlite3_column_name(compiledStatement, i);
                             [self.arrColumnNames addObject:[NSString stringWithUTF8String:dbDataAsChars]];
                         }
+                        [theDataRow setObject:theValue forKey:[NSString stringWithUTF8String:(char *)sqlite3_column_name(compiledStatement, i)]];
                     }
 					
 					// Store each fetched data row in the results array, but first check if there is actually data.
-					if (arrDataRow.count > 0) {
-                        [self.arrResults addObject:arrDataRow];
+					if (theDataRow.allKeys.count > 0) {
+                        [self.arrResults addObject:theDataRow];
 					}
 				}
 			}

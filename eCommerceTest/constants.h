@@ -17,6 +17,7 @@
 #define COLUMN_PRODUCT_IMAGE_URL    @"product_image_url"
 #define COLUMN_PRODUCT_PRICE        @"product_price"
 #define COLUMN_PRODUCT_CATEGORY     @"product_category"
+#define COLUMN_PRODUCT_ORDER        @"product_order"
 
 //For table category
 #define TABLE_CATEGORY              @"category"
@@ -38,5 +39,8 @@
 
 //DB File Name
 #define DBFileName @"sqlAppDB.sqlite"
+
+#define PRODUCT_PLACEHOLDER_IMAGE_NAME @"product-placeholder"
+#define TABLE_ARROW_RIGHT_IMAGE_NAME @"arrow-right"
 
 #endif /* constants_h */

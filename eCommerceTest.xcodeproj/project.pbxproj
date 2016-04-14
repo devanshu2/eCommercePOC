@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		420C81141CBF5D3800F69FA2 /* Products.m in Sources */ = {isa = PBXBuildFile; fileRef = 420C81131CBF5D3800F69FA2 /* Products.m */; };
+		420C81181CBF7ADC00F69FA2 /* HomeProductListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 420C81161CBF7ADC00F69FA2 /* HomeProductListTableViewCell.m */; };
+		420C81191CBF7ADC00F69FA2 /* HomeProductListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 420C81171CBF7ADC00F69FA2 /* HomeProductListTableViewCell.xib */; };
 		420EEDCE1CBA265100348AF9 /* ProductEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 420EEDCD1CBA265100348AF9 /* ProductEntity.m */; };
 		420EEDD11CBA266100348AF9 /* ProductCategoryEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 420EEDD01CBA266100348AF9 /* ProductCategoryEntity.m */; };
 		420EEDD31CBA37FE00348AF9 /* sqlAppDB.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 420EEDD21CBA313500348AF9 /* sqlAppDB.sqlite */; };
@@ -21,6 +24,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		420C81121CBF5D3800F69FA2 /* Products.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Products.h; sourceTree = "<group>"; };
+		420C81131CBF5D3800F69FA2 /* Products.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Products.m; sourceTree = "<group>"; };
+		420C81151CBF7ADC00F69FA2 /* HomeProductListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeProductListTableViewCell.h; sourceTree = "<group>"; };
+		420C81161CBF7ADC00F69FA2 /* HomeProductListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeProductListTableViewCell.m; sourceTree = "<group>"; };
+		420C81171CBF7ADC00F69FA2 /* HomeProductListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeProductListTableViewCell.xib; sourceTree = "<group>"; };
 		420EEDCC1CBA265100348AF9 /* ProductEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductEntity.h; sourceTree = "<group>"; };
 		420EEDCD1CBA265100348AF9 /* ProductEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductEntity.m; sourceTree = "<group>"; };
 		420EEDCF1CBA266100348AF9 /* ProductCategoryEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductCategoryEntity.h; sourceTree = "<group>"; };
@@ -59,6 +67,8 @@
 			children = (
 				420EEDCC1CBA265100348AF9 /* ProductEntity.h */,
 				420EEDCD1CBA265100348AF9 /* ProductEntity.m */,
+				420C81121CBF5D3800F69FA2 /* Products.h */,
+				420C81131CBF5D3800F69FA2 /* Products.m */,
 			);
 			name = "Product Model";
 			sourceTree = "<group>";
@@ -72,19 +82,22 @@
 			name = "Category Model";
 			sourceTree = "<group>";
 		};
-		420C81101CBF579D00F69FA2 /* ViewController */ = {
+		420C81101CBF579D00F69FA2 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				42DB5A921CB96A7C00D4F4D9 /* HomeViewController.h */,
 				42DB5A931CB96A7C00D4F4D9 /* HomeViewController.m */,
 			);
-			name = ViewController;
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 		420C81111CBF57AD00F69FA2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				42DB5A951CB96A7C00D4F4D9 /* Main.storyboard */,
+				420C81151CBF7ADC00F69FA2 /* HomeProductListTableViewCell.h */,
+				420C81161CBF7ADC00F69FA2 /* HomeProductListTableViewCell.m */,
+				420C81171CBF7ADC00F69FA2 /* HomeProductListTableViewCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -109,7 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				420C81111CBF57AD00F69FA2 /* Views */,
-				420C81101CBF579D00F69FA2 /* ViewController */,
+				420C81101CBF579D00F69FA2 /* ViewControllers */,
 				42DB5AA71CB96B3B00D4F4D9 /* Models */,
 				42DB5A8F1CB96A7C00D4F4D9 /* AppDelegate.h */,
 				42DB5A901CB96A7C00D4F4D9 /* AppDelegate.m */,
@@ -212,6 +225,7 @@
 				42DB5A991CB96A7C00D4F4D9 /* Assets.xcassets in Resources */,
 				420EEDD31CBA37FE00348AF9 /* sqlAppDB.sqlite in Resources */,
 				42DB5A971CB96A7C00D4F4D9 /* Main.storyboard in Resources */,
+				420C81191CBF7ADC00F69FA2 /* HomeProductListTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,7 +236,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				420C81141CBF5D3800F69FA2 /* Products.m in Sources */,
 				42DB5A941CB96A7C00D4F4D9 /* HomeViewController.m in Sources */,
+				420C81181CBF7ADC00F69FA2 /* HomeProductListTableViewCell.m in Sources */,
 				420EEDD11CBA266100348AF9 /* ProductCategoryEntity.m in Sources */,
 				420EEDCE1CBA265100348AF9 /* ProductEntity.m in Sources */,
 				42DB5A911CB96A7C00D4F4D9 /* AppDelegate.m in Sources */,

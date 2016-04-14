@@ -10,7 +10,7 @@
 
 @implementation ProductEntity
 
-- (instancetype)initWithProductID:(int)productID Name:(NSString *)productName Image:(NSString *)productImageURL Price:(double)productPrice andCategory:(ProductCategoryEntity *)productCategory{
+- (instancetype)initWithProductID:(int)productID Name:(NSString *)productName Image:(NSString *)productImageURL Price:(double)productPrice Category:(ProductCategoryEntity *)productCategory andProductOrder:(int)productOrder{
     self = [super init];
     if (self) {
         _productID = productID;
@@ -18,6 +18,7 @@
         _productImageURL = productImageURL;
         _productPrice = productPrice;
         _productCategory = productCategory;
+        _productOrder = productOrder;
     }
     return self;
 }
