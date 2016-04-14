@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ProductCategory.h"
+#import "ProductCategoryEntity.h"
 
 @interface ProductEntity : NSObject
 
@@ -15,8 +15,8 @@
 @property (nonatomic, strong) NSString *productName;
 @property (nonatomic, strong) NSString *productImageURL;
 @property (nonatomic, assign) double productPrice;
-@property (nonatomic, strong) ProductCategory *productCategory;
+@property (nonatomic, strong) ProductCategoryEntity *productCategory;
 
-- (instancetype)initWithProductID:(int)productID Name:(NSString *)productName Image:(NSString *)productImageURL Price:(double)productPrice andCategory:(ProductCategory *)productCategory;
+- (instancetype)initWithProductID:(int)productID Name:(NSString *)productName Image:(NSString *)productImageURL Price:(double)productPrice andCategory:(ProductCategoryEntity *)productCategory;
 
 @end

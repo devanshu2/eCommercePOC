@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		420EEDCE1CBA265100348AF9 /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 420EEDCD1CBA265100348AF9 /* Product.m */; };
-		420EEDD11CBA266100348AF9 /* ProductCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 420EEDD01CBA266100348AF9 /* ProductCategory.m */; };
+		420EEDCE1CBA265100348AF9 /* ProductEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 420EEDCD1CBA265100348AF9 /* ProductEntity.m */; };
+		420EEDD11CBA266100348AF9 /* ProductCategoryEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 420EEDD01CBA266100348AF9 /* ProductCategoryEntity.m */; };
 		420EEDD31CBA37FE00348AF9 /* sqlAppDB.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 420EEDD21CBA313500348AF9 /* sqlAppDB.sqlite */; };
 		42DB5A8E1CB96A7C00D4F4D9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 42DB5A8D1CB96A7C00D4F4D9 /* main.m */; };
 		42DB5A911CB96A7C00D4F4D9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 42DB5A901CB96A7C00D4F4D9 /* AppDelegate.m */; };
-		42DB5A941CB96A7C00D4F4D9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42DB5A931CB96A7C00D4F4D9 /* ViewController.m */; };
+		42DB5A941CB96A7C00D4F4D9 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42DB5A931CB96A7C00D4F4D9 /* HomeViewController.m */; };
 		42DB5A971CB96A7C00D4F4D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42DB5A951CB96A7C00D4F4D9 /* Main.storyboard */; };
 		42DB5A991CB96A7C00D4F4D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42DB5A981CB96A7C00D4F4D9 /* Assets.xcassets */; };
 		42DB5A9C1CB96A7C00D4F4D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42DB5A9A1CB96A7C00D4F4D9 /* LaunchScreen.storyboard */; };
@@ -21,17 +21,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		420EEDCC1CBA265100348AF9 /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Product.h; sourceTree = "<group>"; };
-		420EEDCD1CBA265100348AF9 /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Product.m; sourceTree = "<group>"; };
-		420EEDCF1CBA266100348AF9 /* ProductCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductCategory.h; sourceTree = "<group>"; };
-		420EEDD01CBA266100348AF9 /* ProductCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductCategory.m; sourceTree = "<group>"; };
+		420EEDCC1CBA265100348AF9 /* ProductEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductEntity.h; sourceTree = "<group>"; };
+		420EEDCD1CBA265100348AF9 /* ProductEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductEntity.m; sourceTree = "<group>"; };
+		420EEDCF1CBA266100348AF9 /* ProductCategoryEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductCategoryEntity.h; sourceTree = "<group>"; };
+		420EEDD01CBA266100348AF9 /* ProductCategoryEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductCategoryEntity.m; sourceTree = "<group>"; };
 		420EEDD21CBA313500348AF9 /* sqlAppDB.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = sqlAppDB.sqlite; sourceTree = "<group>"; };
 		42DB5A891CB96A7C00D4F4D9 /* eCommerceTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eCommerceTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42DB5A8D1CB96A7C00D4F4D9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		42DB5A8F1CB96A7C00D4F4D9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		42DB5A901CB96A7C00D4F4D9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		42DB5A921CB96A7C00D4F4D9 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		42DB5A931CB96A7C00D4F4D9 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		42DB5A921CB96A7C00D4F4D9 /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		42DB5A931CB96A7C00D4F4D9 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		42DB5A961CB96A7C00D4F4D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		42DB5A981CB96A7C00D4F4D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		42DB5A9B1CB96A7C00D4F4D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -54,6 +54,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		420C810E1CBF55BB00F69FA2 /* Product Model */ = {
+			isa = PBXGroup;
+			children = (
+				420EEDCC1CBA265100348AF9 /* ProductEntity.h */,
+				420EEDCD1CBA265100348AF9 /* ProductEntity.m */,
+			);
+			name = "Product Model";
+			sourceTree = "<group>";
+		};
+		420C810F1CBF55CD00F69FA2 /* Category Model */ = {
+			isa = PBXGroup;
+			children = (
+				420EEDCF1CBA266100348AF9 /* ProductCategoryEntity.h */,
+				420EEDD01CBA266100348AF9 /* ProductCategoryEntity.m */,
+			);
+			name = "Category Model";
+			sourceTree = "<group>";
+		};
+		420C81101CBF579D00F69FA2 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				42DB5A921CB96A7C00D4F4D9 /* HomeViewController.h */,
+				42DB5A931CB96A7C00D4F4D9 /* HomeViewController.m */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		420C81111CBF57AD00F69FA2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				42DB5A951CB96A7C00D4F4D9 /* Main.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		42DB5A801CB96A7C00D4F4D9 = {
 			isa = PBXGroup;
 			children = (
@@ -73,12 +108,11 @@
 		42DB5A8B1CB96A7C00D4F4D9 /* eCommerceTest */ = {
 			isa = PBXGroup;
 			children = (
+				420C81111CBF57AD00F69FA2 /* Views */,
+				420C81101CBF579D00F69FA2 /* ViewController */,
 				42DB5AA71CB96B3B00D4F4D9 /* Models */,
 				42DB5A8F1CB96A7C00D4F4D9 /* AppDelegate.h */,
 				42DB5A901CB96A7C00D4F4D9 /* AppDelegate.m */,
-				42DB5A921CB96A7C00D4F4D9 /* ViewController.h */,
-				42DB5A931CB96A7C00D4F4D9 /* ViewController.m */,
-				42DB5A951CB96A7C00D4F4D9 /* Main.storyboard */,
 				42DB5A981CB96A7C00D4F4D9 /* Assets.xcassets */,
 				42DB5A9A1CB96A7C00D4F4D9 /* LaunchScreen.storyboard */,
 				42DB5A9D1CB96A7C00D4F4D9 /* Info.plist */,
@@ -102,10 +136,8 @@
 			isa = PBXGroup;
 			children = (
 				42DB5AA81CB96B3B00D4F4D9 /* DBManager */,
-				420EEDCC1CBA265100348AF9 /* Product.h */,
-				420EEDCD1CBA265100348AF9 /* Product.m */,
-				420EEDCF1CBA266100348AF9 /* ProductCategory.h */,
-				420EEDD01CBA266100348AF9 /* ProductCategory.m */,
+				420C810E1CBF55BB00F69FA2 /* Product Model */,
+				420C810F1CBF55CD00F69FA2 /* Category Model */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -190,9 +222,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42DB5A941CB96A7C00D4F4D9 /* ViewController.m in Sources */,
-				420EEDD11CBA266100348AF9 /* ProductCategory.m in Sources */,
-				420EEDCE1CBA265100348AF9 /* Product.m in Sources */,
+				42DB5A941CB96A7C00D4F4D9 /* HomeViewController.m in Sources */,
+				420EEDD11CBA266100348AF9 /* ProductCategoryEntity.m in Sources */,
+				420EEDCE1CBA265100348AF9 /* ProductEntity.m in Sources */,
 				42DB5A911CB96A7C00D4F4D9 /* AppDelegate.m in Sources */,
 				42DB5A8E1CB96A7C00D4F4D9 /* main.m in Sources */,
 				42DB5AAB1CB96B3B00D4F4D9 /* DBManager.m in Sources */,
