@@ -35,11 +35,6 @@ static NSString *cellIdentifier = @"HomeProductList";
     [self setViewControllerNavigationBar];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 #pragma mark - Private Methods
 
 - (void)setViewControllerNavigationBar{
@@ -97,12 +92,10 @@ static NSString *cellIdentifier = @"HomeProductList";
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Make sure your segue name in storyboard is the same as this line
     if ([[segue identifier] isEqualToString:@"productDetailSegue"])
     {
         ProductDetailViewController *productDetailController = segue.destinationViewController;
         productDetailController.theProduct = (ProductEntity*)sender;
-        //if you need to pass data to the next controller do it here
     }
 }
 

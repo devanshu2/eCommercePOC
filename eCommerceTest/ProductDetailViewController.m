@@ -10,6 +10,7 @@
 #import "SDWebImage/UIImageView+WebCache.h"
 #import "AppOptions.h"
 #import "constants.h"
+#import "CartManager.h"
 
 @interface ProductDetailViewController ()
 
@@ -29,11 +30,7 @@ static NSString *cellIdentifierBasic = @"cellIdentifierBasic";
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self setViewControllerNavigationBar];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [self updateViewOnAppearing];
 }
 
 #pragma mark - Private Methods
@@ -44,6 +41,17 @@ static NSString *cellIdentifierBasic = @"cellIdentifierBasic";
     _addToCartButton.layer.cornerRadius = 5.0;
     self.theTable.rowHeight = UITableViewAutomaticDimension;
     self.theTable.separatorStyle = UITableViewCellSeparatorStyleNone;
+}
+
+- (void)updateViewOnAppearing{
+    if ([[CartManager sharedInstance] isProductInCart:_theProduct]) {
+        _cartMessageLabel.text = @"Product Already Available In Cart";
+        _addToCartButtonTopCons.constant = 6.0;
+    }
+    else{
+        _cartMessageLabel.text = @"";
+        _addToCartButtonTopCons.constant = 17.0;
+    }
 }
 
 - (void)setViewControllerNavigationBar{
@@ -114,6 +122,12 @@ static NSString *cellIdentifierBasic = @"cellIdentifierBasic";
     [sizingCell layoutIfNeeded];
     CGSize size = [sizingCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
     return size.height;
+}
+
+#pragma mark - Actions
+
+- (IBAction)addToCartButtonAction:(id)sender{
+    
 }
 
 

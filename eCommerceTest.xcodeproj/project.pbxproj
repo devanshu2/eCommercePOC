@@ -29,6 +29,10 @@
 		420C814F1CBF982900F69FA2 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 420C814E1CBF982900F69FA2 /* ImageIO.framework */; };
 		420C81571CBF9BF300F69FA2 /* AppOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 420C81561CBF9BF300F69FA2 /* AppOptions.m */; };
 		420C815C1CBFBD6F00F69FA2 /* ProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420C815B1CBFBD6F00F69FA2 /* ProductDetailViewController.m */; };
+		420C81601CBFCE9800F69FA2 /* CartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420C815F1CBFCE9800F69FA2 /* CartViewController.m */; };
+		420C81641CBFD2BA00F69FA2 /* CartManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 420C81631CBFD2BA00F69FA2 /* CartManager.m */; };
+		420C81671CBFEBF300F69FA2 /* CartNavItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 420C81661CBFEBF300F69FA2 /* CartNavItem.m */; };
+		420C81691CBFEC0400F69FA2 /* CartNavItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 420C81681CBFEC0400F69FA2 /* CartNavItem.xib */; };
 		420EEDCE1CBA265100348AF9 /* ProductEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 420EEDCD1CBA265100348AF9 /* ProductEntity.m */; };
 		420EEDD11CBA266100348AF9 /* ProductCategoryEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 420EEDD01CBA266100348AF9 /* ProductCategoryEntity.m */; };
 		420EEDD31CBA37FE00348AF9 /* sqlAppDB.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 420EEDD21CBA313500348AF9 /* sqlAppDB.sqlite */; };
@@ -86,6 +90,13 @@
 		420C81561CBF9BF300F69FA2 /* AppOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppOptions.m; sourceTree = "<group>"; };
 		420C815A1CBFBD6F00F69FA2 /* ProductDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailViewController.h; sourceTree = "<group>"; };
 		420C815B1CBFBD6F00F69FA2 /* ProductDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailViewController.m; sourceTree = "<group>"; };
+		420C815E1CBFCE9800F69FA2 /* CartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartViewController.h; sourceTree = "<group>"; };
+		420C815F1CBFCE9800F69FA2 /* CartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartViewController.m; sourceTree = "<group>"; };
+		420C81621CBFD2BA00F69FA2 /* CartManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartManager.h; sourceTree = "<group>"; };
+		420C81631CBFD2BA00F69FA2 /* CartManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartManager.m; sourceTree = "<group>"; };
+		420C81651CBFEBF300F69FA2 /* CartNavItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartNavItem.h; sourceTree = "<group>"; };
+		420C81661CBFEBF300F69FA2 /* CartNavItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartNavItem.m; sourceTree = "<group>"; };
+		420C81681CBFEC0400F69FA2 /* CartNavItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CartNavItem.xib; sourceTree = "<group>"; };
 		420EEDCC1CBA265100348AF9 /* ProductEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductEntity.h; sourceTree = "<group>"; };
 		420EEDCD1CBA265100348AF9 /* ProductEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductEntity.m; sourceTree = "<group>"; };
 		420EEDCF1CBA266100348AF9 /* ProductCategoryEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductCategoryEntity.h; sourceTree = "<group>"; };
@@ -143,6 +154,7 @@
 		420C81101CBF579D00F69FA2 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				420C815D1CBFCE8700F69FA2 /* Cart */,
 				420C81591CBFBD4D00F69FA2 /* ProductDetail */,
 				420C81581CBFA44400F69FA2 /* Home */,
 			);
@@ -156,6 +168,9 @@
 				420C81151CBF7ADC00F69FA2 /* HomeProductListTableViewCell.h */,
 				420C81161CBF7ADC00F69FA2 /* HomeProductListTableViewCell.m */,
 				420C81171CBF7ADC00F69FA2 /* HomeProductListTableViewCell.xib */,
+				420C81651CBFEBF300F69FA2 /* CartNavItem.h */,
+				420C81661CBFEBF300F69FA2 /* CartNavItem.m */,
+				420C81681CBFEC0400F69FA2 /* CartNavItem.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -236,6 +251,24 @@
 			name = ProductDetail;
 			sourceTree = "<group>";
 		};
+		420C815D1CBFCE8700F69FA2 /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				420C815E1CBFCE9800F69FA2 /* CartViewController.h */,
+				420C815F1CBFCE9800F69FA2 /* CartViewController.m */,
+			);
+			name = Cart;
+			sourceTree = "<group>";
+		};
+		420C81611CBFD2A300F69FA2 /* CartManager */ = {
+			isa = PBXGroup;
+			children = (
+				420C81621CBFD2BA00F69FA2 /* CartManager.h */,
+				420C81631CBFD2BA00F69FA2 /* CartManager.m */,
+			);
+			name = CartManager;
+			sourceTree = "<group>";
+		};
 		42DB5A801CB96A7C00D4F4D9 = {
 			isa = PBXGroup;
 			children = (
@@ -283,6 +316,7 @@
 		42DB5AA71CB96B3B00D4F4D9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				420C81611CBFD2A300F69FA2 /* CartManager */,
 				420C81541CBF9BD500F69FA2 /* Options Model */,
 				42DB5AA81CB96B3B00D4F4D9 /* DBManager */,
 				420C810E1CBF55BB00F69FA2 /* Product Model */,
@@ -361,6 +395,7 @@
 				42DB5A991CB96A7C00D4F4D9 /* Assets.xcassets in Resources */,
 				420EEDD31CBA37FE00348AF9 /* sqlAppDB.sqlite in Resources */,
 				42DB5A971CB96A7C00D4F4D9 /* Main.storyboard in Resources */,
+				420C81691CBFEC0400F69FA2 /* CartNavItem.xib in Resources */,
 				420C81191CBF7ADC00F69FA2 /* HomeProductListTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -373,6 +408,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				420C81571CBF9BF300F69FA2 /* AppOptions.m in Sources */,
+				420C81671CBFEBF300F69FA2 /* CartNavItem.m in Sources */,
 				420C81421CBF980000F69FA2 /* SDWebImageDecoder.m in Sources */,
 				420C81451CBF980000F69FA2 /* SDWebImageManager.m in Sources */,
 				420C813F1CBF980000F69FA2 /* NSData+ImageContentType.m in Sources */,
@@ -388,6 +424,8 @@
 				420C81441CBF980000F69FA2 /* SDWebImageDownloaderOperation.m in Sources */,
 				420EEDD11CBA266100348AF9 /* ProductCategoryEntity.m in Sources */,
 				420EEDCE1CBA265100348AF9 /* ProductEntity.m in Sources */,
+				420C81601CBFCE9800F69FA2 /* CartViewController.m in Sources */,
+				420C81641CBFD2BA00F69FA2 /* CartManager.m in Sources */,
 				420C81491CBF980000F69FA2 /* UIImage+MultiFormat.m in Sources */,
 				42DB5A911CB96A7C00D4F4D9 /* AppDelegate.m in Sources */,
 				420C81401CBF980000F69FA2 /* SDImageCache.m in Sources */,
