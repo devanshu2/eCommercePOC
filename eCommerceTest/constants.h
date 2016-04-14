@@ -34,13 +34,15 @@
 #define COLUMN_OPTIONS_VALUE        @"option_value"
 
 //Option Constants
-#define DB_VERSION                  @"dbversion"
-#define CURRENCY_SYMBOL             @"currency"
+#define DB_VERSION_STRING           @"dbversion"
+#define CURRENCY_SYMBOL_STRING      @"currency"
 
 //DB File Name
 #define DBFileName @"sqlAppDB.sqlite"
 
 #define PRODUCT_PLACEHOLDER_IMAGE_NAME @"product-placeholder"
 #define TABLE_ARROW_RIGHT_IMAGE_NAME @"arrow-right"
+
+#define CURRENCY_SYMBOL [[AppOptions sharedInstance] getOptionValueForKey:CURRENCY_SYMBOL_STRING]
 
 #endif /* constants_h */

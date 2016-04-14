@@ -8,6 +8,8 @@
 
 #import "HomeViewController.h"
 #import "HomeProductListTableViewCell.h"
+#import "SDWebImage/UIImageView+WebCache.h"
+#import "AppOptions.h"
 
 @interface HomeViewController (){
     NSDictionary *productsData;
@@ -27,12 +29,21 @@ static NSString *cellIdentifier = @"HomeProductList";
     [self initializeTableSettings];
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self setViewControllerNavigationBar];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Private Methods
+
+- (void)setViewControllerNavigationBar{
+    self.navigationItem.title = @"Home";
+}
 
 - (void)initializeTableSettings{
     self.tableView.rowHeight = UITableViewAutomaticDimension;
@@ -62,10 +73,16 @@ static NSString *cellIdentifier = @"HomeProductList";
     HomeProductListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     NSString *keyCat = [[productsData allKeys] objectAtIndex:indexPath.section];
     ProductEntity *productData = [[productsData objectForKey:keyCat] objectAtIndex:indexPath.row];
-    [cell.productImageView setImage:[UIImage imageNamed:PRODUCT_PLACEHOLDER_IMAGE_NAME]];
+    [cell.productImageView sd_setImageWithURL:[NSURL URLWithString:productData.productImageURL] placeholderImage:[UIImage imageNamed:PRODUCT_PLACEHOLDER_IMAGE_NAME]];
     cell.name.text = productData.productName;
-    cell.price.text = [NSString stringWithFormat:@"Rs %.02f", productData.productPrice];
+    cell.price.text = [NSString stringWithFormat:@"%@ %.02f", CURRENCY_SYMBOL, productData.productPrice];
     return cell;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    NSString *keyCat = [[categoriesData allKeys] objectAtIndex:section];
+    ProductCategoryEntity *productCategory = [categoriesData objectForKey:keyCat];
+    return productCategory.categoryName;
 }
 
 @end
