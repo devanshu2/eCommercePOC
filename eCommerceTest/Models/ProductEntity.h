@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "ProductCategory.h"
 
-@interface Product : NSObject
+@interface ProductEntity : NSObject
 
 @property (nonatomic, assign) int productID;
 @property (nonatomic, strong) NSString *productName;

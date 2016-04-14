@@ -6,9 +6,9 @@
 //  Copyright © 2016 Devenshu Saini. All rights reserved.
 //
 
-#import "Product.h"
+#import "ProductEntity.h"
 
-@implementation Product
+@implementation ProductEntity
 
 - (instancetype)initWithProductID:(int)productID Name:(NSString *)productName Image:(NSString *)productImageURL Price:(double)productPrice andCategory:(ProductCategory *)productCategory{
     self = [super init];

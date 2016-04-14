@@ -6,9 +6,9 @@
 //  Copyright © 2016 Devenshu Saini. All rights reserved.
 //
 
-#import "ProductCategory.h"
+#import "ProductCategoryEntity.h"
 
-@implementation ProductCategory
+@implementation ProductCategoryEntity
 
 - (instancetype)initWithID:(int)categoryID Name:(NSString *)categoryName andSortOrder:(int)categorySortOrder{
     self = [super init];
