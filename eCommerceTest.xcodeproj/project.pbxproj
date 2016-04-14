@@ -28,6 +28,7 @@
 		420C814D1CBF980000F69FA2 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 420C813D1CBF980000F69FA2 /* UIView+WebCacheOperation.m */; };
 		420C814F1CBF982900F69FA2 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 420C814E1CBF982900F69FA2 /* ImageIO.framework */; };
 		420C81571CBF9BF300F69FA2 /* AppOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 420C81561CBF9BF300F69FA2 /* AppOptions.m */; };
+		420C815C1CBFBD6F00F69FA2 /* ProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420C815B1CBFBD6F00F69FA2 /* ProductDetailViewController.m */; };
 		420EEDCE1CBA265100348AF9 /* ProductEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 420EEDCD1CBA265100348AF9 /* ProductEntity.m */; };
 		420EEDD11CBA266100348AF9 /* ProductCategoryEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 420EEDD01CBA266100348AF9 /* ProductCategoryEntity.m */; };
 		420EEDD31CBA37FE00348AF9 /* sqlAppDB.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 420EEDD21CBA313500348AF9 /* sqlAppDB.sqlite */; };
@@ -83,6 +84,8 @@
 		420C814E1CBF982900F69FA2 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		420C81551CBF9BF300F69FA2 /* AppOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppOptions.h; sourceTree = "<group>"; };
 		420C81561CBF9BF300F69FA2 /* AppOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppOptions.m; sourceTree = "<group>"; };
+		420C815A1CBFBD6F00F69FA2 /* ProductDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailViewController.h; sourceTree = "<group>"; };
+		420C815B1CBFBD6F00F69FA2 /* ProductDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailViewController.m; sourceTree = "<group>"; };
 		420EEDCC1CBA265100348AF9 /* ProductEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductEntity.h; sourceTree = "<group>"; };
 		420EEDCD1CBA265100348AF9 /* ProductEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductEntity.m; sourceTree = "<group>"; };
 		420EEDCF1CBA266100348AF9 /* ProductCategoryEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductCategoryEntity.h; sourceTree = "<group>"; };
@@ -140,6 +143,7 @@
 		420C81101CBF579D00F69FA2 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				420C81591CBFBD4D00F69FA2 /* ProductDetail */,
 				420C81581CBFA44400F69FA2 /* Home */,
 			);
 			name = ViewControllers;
@@ -221,6 +225,15 @@
 				42DB5A931CB96A7C00D4F4D9 /* HomeViewController.m */,
 			);
 			name = Home;
+			sourceTree = "<group>";
+		};
+		420C81591CBFBD4D00F69FA2 /* ProductDetail */ = {
+			isa = PBXGroup;
+			children = (
+				420C815A1CBFBD6F00F69FA2 /* ProductDetailViewController.h */,
+				420C815B1CBFBD6F00F69FA2 /* ProductDetailViewController.m */,
+			);
+			name = ProductDetail;
 			sourceTree = "<group>";
 		};
 		42DB5A801CB96A7C00D4F4D9 = {
@@ -378,6 +391,7 @@
 				420C81491CBF980000F69FA2 /* UIImage+MultiFormat.m in Sources */,
 				42DB5A911CB96A7C00D4F4D9 /* AppDelegate.m in Sources */,
 				420C81401CBF980000F69FA2 /* SDImageCache.m in Sources */,
+				420C815C1CBFBD6F00F69FA2 /* ProductDetailViewController.m in Sources */,
 				42DB5A8E1CB96A7C00D4F4D9 /* main.m in Sources */,
 				42DB5AAB1CB96B3B00D4F4D9 /* DBManager.m in Sources */,
 				420C81481CBF980000F69FA2 /* UIImage+GIF.m in Sources */,

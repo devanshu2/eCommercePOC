@@ -10,6 +10,7 @@
 #import "HomeProductListTableViewCell.h"
 #import "SDWebImage/UIImageView+WebCache.h"
 #import "AppOptions.h"
+#import "ProductDetailViewController.h"
 
 @interface HomeViewController (){
     NSDictionary *productsData;
@@ -76,6 +77,7 @@ static NSString *cellIdentifier = @"HomeProductList";
     [cell.productImageView sd_setImageWithURL:[NSURL URLWithString:productData.productImageURL] placeholderImage:[UIImage imageNamed:PRODUCT_PLACEHOLDER_IMAGE_NAME]];
     cell.name.text = productData.productName;
     cell.price.text = [NSString stringWithFormat:@"%@ %.02f", CURRENCY_SYMBOL, productData.productPrice];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
@@ -83,6 +85,25 @@ static NSString *cellIdentifier = @"HomeProductList";
     NSString *keyCat = [[categoriesData allKeys] objectAtIndex:section];
     ProductCategoryEntity *productCategory = [categoriesData objectForKey:keyCat];
     return productCategory.categoryName;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSString *keyCat = [[productsData allKeys] objectAtIndex:indexPath.section];
+    ProductEntity *productData = [[productsData objectForKey:keyCat] objectAtIndex:indexPath.row];
+    [self performSegueWithIdentifier:@"productDetailSegue" sender:productData];
+}
+
+#pragma mark - Segue Methods
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Make sure your segue name in storyboard is the same as this line
+    if ([[segue identifier] isEqualToString:@"productDetailSegue"])
+    {
+        ProductDetailViewController *productDetailController = segue.destinationViewController;
+        productDetailController.theProduct = (ProductEntity*)sender;
+        //if you need to pass data to the next controller do it here
+    }
 }
 
 @end
