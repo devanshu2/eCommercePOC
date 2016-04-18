@@ -3,7 +3,7 @@
 //  eCommerceTest
 //
 //  Created by Devanshu Saini on 09/04/16.
-//  Copyright © 2016 Devenshu Saini. All rights reserved.
+//  Copyright © 2016 Devanshu Saini. All rights reserved.
 //
 
 #ifndef constants_h
@@ -58,5 +58,6 @@
 
 #define CART_COUNT_NOTIFICATION @"CART_COUNT_NOTIFICATION"
 
+//put it to 0 to fetch images from server for products, 1 for fetching from local bundle images
 #define USE_LOCAL_PRODUCT_IMAGES 1
 #endif /* constants_h */

@@ -173,15 +173,9 @@
 			isa = PBXGroup;
 			children = (
 				42DB5A951CB96A7C00D4F4D9 /* Main.storyboard */,
-				420C81151CBF7ADC00F69FA2 /* HomeProductListTableViewCell.h */,
-				420C81161CBF7ADC00F69FA2 /* HomeProductListTableViewCell.m */,
-				420C81171CBF7ADC00F69FA2 /* HomeProductListTableViewCell.xib */,
-				420C81651CBFEBF300F69FA2 /* CartNavItem.h */,
-				420C81661CBFEBF300F69FA2 /* CartNavItem.m */,
-				420C81681CBFEC0400F69FA2 /* CartNavItem.xib */,
-				DB95DA481CC51B4000299D12 /* CartFooterView.h */,
-				DB95DA491CC51B4000299D12 /* CartFooterView.m */,
-				DB95DA4B1CC51B4B00299D12 /* CartFooterView.xib */,
+				42E125F21CC5436300F52758 /* HomeProductListTableCell */,
+				42E125F31CC5437500F52758 /* CartNavigationView */,
+				42E125F41CC5438500F52758 /* CartFooterSection */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -344,6 +338,36 @@
 				42DB5AAA1CB96B3B00D4F4D9 /* DBManager.m */,
 			);
 			path = DBManager;
+			sourceTree = "<group>";
+		};
+		42E125F21CC5436300F52758 /* HomeProductListTableCell */ = {
+			isa = PBXGroup;
+			children = (
+				420C81151CBF7ADC00F69FA2 /* HomeProductListTableViewCell.h */,
+				420C81161CBF7ADC00F69FA2 /* HomeProductListTableViewCell.m */,
+				420C81171CBF7ADC00F69FA2 /* HomeProductListTableViewCell.xib */,
+			);
+			name = HomeProductListTableCell;
+			sourceTree = "<group>";
+		};
+		42E125F31CC5437500F52758 /* CartNavigationView */ = {
+			isa = PBXGroup;
+			children = (
+				420C81651CBFEBF300F69FA2 /* CartNavItem.h */,
+				420C81661CBFEBF300F69FA2 /* CartNavItem.m */,
+				420C81681CBFEC0400F69FA2 /* CartNavItem.xib */,
+			);
+			name = CartNavigationView;
+			sourceTree = "<group>";
+		};
+		42E125F41CC5438500F52758 /* CartFooterSection */ = {
+			isa = PBXGroup;
+			children = (
+				DB95DA481CC51B4000299D12 /* CartFooterView.h */,
+				DB95DA491CC51B4000299D12 /* CartFooterView.m */,
+				DB95DA4B1CC51B4B00299D12 /* CartFooterView.xib */,
+			);
+			name = CartFooterSection;
 			sourceTree = "<group>";
 		};
 		DB95DA451CC5020400299D12 /* EComButton */ = {

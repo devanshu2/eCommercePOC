@@ -3,7 +3,7 @@
 //  eCommerceTest
 //
 //  Created by Devanshu Saini on 09/04/16.
-//  Copyright © 2016 Devenshu Saini. All rights reserved.
+//  Copyright © 2016 Devanshu Saini. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -17,12 +17,30 @@
 
 @property (nonatomic) long long lastInsertedRowID;
 
-+(instancetype)sharedInstance;
+/*!
+ * @discussion Singleton instance of class
+ * @return DBManager shared instance
+ */
++ (instancetype)sharedInstance;
 
--(instancetype)initWithDatabaseFilename:(NSString *)dbFilename;
+/*!
+ * @discussion Instance of class using a dbfile file
+ * @param dbFilename of type NSString
+ * @return DBManager instance
+ */
+- (instancetype)initWithDatabaseFilename:(NSString *)dbFilename;
 
--(NSArray *)loadDataFromDB:(NSString *)query;
+/*!
+ * @discussion load data from database using a query
+ * @param query of type NSString
+ * @return loaded data from database NSArray
+ */
+- (NSArray *)loadDataFromDB:(NSString *)query;
 
--(void)executeQuery:(NSString *)query;
+/*!
+ * @discussion execute a query in the database using a query
+ * @param query of type NSString
+ */
+- (void)executeQuery:(NSString *)query;
 
 @end
