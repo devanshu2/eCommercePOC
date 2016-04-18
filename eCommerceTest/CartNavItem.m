@@ -7,6 +7,7 @@
 //
 
 #import "CartNavItem.h"
+#import "constants.h"
 
 @interface CartNavItem (){
     IBOutlet UILabel *cartCountLabel;
@@ -17,14 +18,6 @@
 
 @implementation CartNavItem
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
-
 - (void)setCartCount:(NSInteger)cartCount{
     _cartCount = cartCount;
     cartCountLabel.text = @"";
@@ -32,8 +25,10 @@
         cartCountLabel.hidden = NO;
         cartCountLabel.text = [NSString stringWithFormat:@"%ld", (long)cartCount];
         [cartCountLabel sizeToFit];
-        cartCountLabel.frame = CGRectMake(cartCountLabel.frame.origin.x, cartCountLabel.frame.origin.y, cartCountLabel.frame.size.width + 6.0, cartCountLabel.frame.size.height);
-        cartCountLabel.layer.cornerRadius = 5.0;
+        cartCountLabel.frame = CGRectMake(cartCountLabel.frame.origin.x, cartCountLabel.frame.origin.y, cartCountLabel.frame.size.width + 4.0, cartCountLabel.frame.size.height);
+        cartCountLabel.layer.cornerRadius = cartCountLabel.frame.size.height/2;
+        cartCountLabel.clipsToBounds = YES;
+        cartCountLabel.textAlignment = NSTextAlignmentCenter;
     }
     else{
         cartCountLabel.hidden = YES;
@@ -42,11 +37,15 @@
 
 - (CGFloat)getViewWidth{
     if (_cartCount > 0) {
-        return (cartCountLabel.frame.origin.x + cartCountLabel.frame.size.width);
+        return (cartCountLabel.frame.origin.x + cartCountLabel.frame.size.width + 8.0);
     }
     else{
-        return (cartIcon.frame.origin.x + cartIcon.frame.size.width);
+        return (cartIcon.frame.origin.x + cartIcon.frame.size.width + 8.0);
     }
+}
+
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end

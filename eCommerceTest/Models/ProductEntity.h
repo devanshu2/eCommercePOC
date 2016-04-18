@@ -15,11 +15,13 @@
 @property (nonatomic, assign) int productOrder;
 @property (nonatomic, strong) NSString *productName;
 @property (nonatomic, strong) NSString *productImageURL;
+@property (nonatomic, strong) NSString *productLocalImage;
 @property (nonatomic, assign) double productPrice;
+@property (nonatomic, assign) int productMaxQuantity;
 @property (nonatomic, strong) ProductCategoryEntity *productCategory;
 @property (nonatomic, readonly, getter=getProductData) NSDictionary* productDictionaryData;
 
-- (instancetype)initWithProductID:(int)productID Name:(NSString *)productName Image:(NSString *)productImageURL Price:(double)productPrice Category:(ProductCategoryEntity *)productCategory andProductOrder:(int)productOrder;
+- (instancetype)initWithProductID:(int)productID Name:(NSString *)productName Image:(NSString *)productImageURL LocalImage:(NSString*)productLocalImage MaxQuantity:(int)productMaxQuantity Price:(double)productPrice Category:(ProductCategoryEntity *)productCategory andProductOrder:(int)productOrder;
 
 - (instancetype)initWithProductDictionaryData:(NSDictionary*)productDictionaryData;
 

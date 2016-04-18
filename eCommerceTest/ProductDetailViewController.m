@@ -10,6 +10,7 @@
 #import "SDWebImage/UIImageView+WebCache.h"
 #import "AppOptions.h"
 #import "constants.h"
+#import "CartNavItem.h"
 #import "CartManager.h"
 
 @interface ProductDetailViewController ()
@@ -29,8 +30,13 @@ static NSString *cellIdentifierBasic = @"cellIdentifierBasic";
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateCartButtonInNavigationBar:) name:CART_COUNT_NOTIFICATION object:nil];
     [self setViewControllerNavigationBar];
     [self updateViewOnAppearing];
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:CART_COUNT_NOTIFICATION object:nil];
 }
 
 #pragma mark - Private Methods
@@ -44,18 +50,23 @@ static NSString *cellIdentifierBasic = @"cellIdentifierBasic";
 }
 
 - (void)updateViewOnAppearing{
-    if ([[CartManager sharedInstance] isProductInCart:_theProduct]) {
-        _cartMessageLabel.text = @"Product Already Available In Cart";
-        _addToCartButtonTopCons.constant = 6.0;
-    }
-    else{
-        _cartMessageLabel.text = @"";
-        _addToCartButtonTopCons.constant = 17.0;
-    }
+    _productQuantity.text = @"1";
 }
 
 - (void)setViewControllerNavigationBar{
     self.navigationItem.title = _theProduct.productName;
+    [self updateCartButtonInNavigationBar:nil];
+}
+
+- (void)updateCartButtonInNavigationBar:(NSNotification*)notification{
+    NSInteger cartCount = notification ? [notification.object integerValue] : [[[CartManager sharedInstance] getProductsInCart] count];
+    CartNavItem *cartNavBar = (CartNavItem*)[[[NSBundle mainBundle] loadNibNamed:@"CartNavItem" owner:self options:nil] firstObject];
+    [cartNavBar setCartCount:cartCount];
+    [cartNavBar setFrame:CGRectMake(0.0, 0.0, [cartNavBar getViewWidth], 30.0)];
+    UITapGestureRecognizer *cartTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(presentModalOfCart)];
+    cartTap.numberOfTapsRequired = 1;
+    [cartNavBar addGestureRecognizer:cartTap];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:cartNavBar];
 }
 
 /*
@@ -91,7 +102,12 @@ static NSString *cellIdentifierBasic = @"cellIdentifierBasic";
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     if (indexPath.row == 0) {
         UIImageView *productImage = (UIImageView *)[cell viewWithTag:1];
-        [productImage sd_setImageWithURL:[NSURL URLWithString:_theProduct.productImageURL] placeholderImage:[UIImage imageNamed:PRODUCT_PLACEHOLDER_IMAGE_NAME]];
+        if (USE_LOCAL_PRODUCT_IMAGES) {
+            [productImage setImage:[UIImage imageNamed:_theProduct.productLocalImage]];
+        }
+        else{
+            [productImage sd_setImageWithURL:[NSURL URLWithString:_theProduct.productImageURL] placeholderImage:[UIImage imageNamed:PRODUCT_PLACEHOLDER_IMAGE_NAME]];
+        }
     }
     else if (indexPath.row == 1) {
         UILabel *label = (UILabel *)[cell viewWithTag:1];
@@ -127,8 +143,22 @@ static NSString *cellIdentifierBasic = @"cellIdentifierBasic";
 #pragma mark - Actions
 
 - (IBAction)addToCartButtonAction:(id)sender{
-    
+    NSString *message = nil;
+    [[CartManager sharedInstance] addProductToCart:_theProduct withQuantity:[_productQuantity.text intValue] forceQuantity:NO andMessage:&message];
+    if (message) {
+        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"" message:message preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alert addAction:defaultAction];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
 }
 
+- (IBAction)quantityChangeAction:(UIStepper*)sender {
+    _productQuantity.text = [NSString stringWithFormat:@"%ld", (long)sender.value];
+}
+
+- (void)presentModalOfCart{
+    [self performSegueWithIdentifier:@"modalSegue2" sender:nil];
+}
 
 @end

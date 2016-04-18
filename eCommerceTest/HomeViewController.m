@@ -11,6 +11,8 @@
 #import "SDWebImage/UIImageView+WebCache.h"
 #import "AppOptions.h"
 #import "ProductDetailViewController.h"
+#import "CartNavItem.h"
+#import "CartManager.h"
 
 @interface HomeViewController (){
     NSDictionary *productsData;
@@ -32,13 +34,30 @@ static NSString *cellIdentifier = @"HomeProductList";
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateCartButtonInNavigationBar:) name:CART_COUNT_NOTIFICATION object:nil];
     [self setViewControllerNavigationBar];
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:CART_COUNT_NOTIFICATION object:nil];
 }
 
 #pragma mark - Private Methods
 
 - (void)setViewControllerNavigationBar{
     self.navigationItem.title = @"Home";
+    [self updateCartButtonInNavigationBar:nil];
+}
+
+- (void)updateCartButtonInNavigationBar:(NSNotification*)notification{
+    NSInteger cartCount = notification ? [notification.object integerValue] : [[[CartManager sharedInstance] getProductsInCart] count];
+    CartNavItem *cartNavBar = (CartNavItem*)[[[NSBundle mainBundle] loadNibNamed:@"CartNavItem" owner:self options:nil] firstObject];
+    [cartNavBar setCartCount:cartCount];
+    [cartNavBar setFrame:CGRectMake(0.0, 0.0, [cartNavBar getViewWidth], 30.0)];
+    UITapGestureRecognizer *cartTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(presentModalOfCart)];
+    cartTap.numberOfTapsRequired = 1;
+    [cartNavBar addGestureRecognizer:cartTap];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:cartNavBar];
 }
 
 - (void)initializeTableSettings{
@@ -69,7 +88,12 @@ static NSString *cellIdentifier = @"HomeProductList";
     HomeProductListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     NSString *keyCat = [[productsData allKeys] objectAtIndex:indexPath.section];
     ProductEntity *productData = [[productsData objectForKey:keyCat] objectAtIndex:indexPath.row];
-    [cell.productImageView sd_setImageWithURL:[NSURL URLWithString:productData.productImageURL] placeholderImage:[UIImage imageNamed:PRODUCT_PLACEHOLDER_IMAGE_NAME]];
+    if (USE_LOCAL_PRODUCT_IMAGES) {
+        [cell.productImageView setImage:[UIImage imageNamed:productData.productLocalImage]];
+    }
+    else{
+        [cell.productImageView sd_setImageWithURL:[NSURL URLWithString:productData.productImageURL] placeholderImage:[UIImage imageNamed:PRODUCT_PLACEHOLDER_IMAGE_NAME]];
+    }
     cell.name.text = productData.productName;
     cell.price.text = [NSString stringWithFormat:@"%@ %.02f", CURRENCY_SYMBOL, productData.productPrice];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -97,6 +121,10 @@ static NSString *cellIdentifier = @"HomeProductList";
         ProductDetailViewController *productDetailController = segue.destinationViewController;
         productDetailController.theProduct = (ProductEntity*)sender;
     }
+}
+
+- (void)presentModalOfCart{
+    [self performSegueWithIdentifier:@"modalSegue1" sender:nil];
 }
 
 @end

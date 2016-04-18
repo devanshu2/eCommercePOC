@@ -13,8 +13,8 @@
 
 @property (nonatomic, strong) IBOutlet UITableView *theTable;
 @property (nonatomic, weak) IBOutlet UIButton *addToCartButton;
-@property (nonatomic, weak) IBOutlet UILabel *cartMessageLabel;
-@property (nonatomic, weak) IBOutlet NSLayoutConstraint *addToCartButtonTopCons;
 @property (nonatomic, strong) ProductEntity *theProduct;
+@property (weak, nonatomic) IBOutlet UILabel *productQuantity;
+
 
 @end

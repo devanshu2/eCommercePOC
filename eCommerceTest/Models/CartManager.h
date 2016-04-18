@@ -12,11 +12,11 @@
 
 + (instancetype)sharedInstance;
 
-- (BOOL)addProductToCart:(ProductEntity*)product;
+- (NSInteger)addProductToCart:(ProductEntity*)product withQuantity:(int)quantity forceQuantity:(BOOL)doForceful andMessage:(NSString**)message;
 
 - (BOOL)removeProductFromCart:(ProductEntity*)product;
 
-- (NSInteger)isProductInCart:(ProductEntity*)product;
+- (int)getQuantityForProductInCart:(ProductEntity*)product;
 
 - (void)flushProductsFromCart;
 

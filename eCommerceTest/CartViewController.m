@@ -7,8 +7,15 @@
 //
 
 #import "CartViewController.h"
+#import "CartManager.h"
+#import "ProductEntity.h"
 
-@interface CartViewController ()
+#define KEY_PRODUCT @"product"
+#define KEY_QUANTITY @"quantity"
+
+@interface CartViewController (){
+    NSInteger pickerNumberOfRows;
+}
 
 @end
 
@@ -23,13 +30,26 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self setViewControllerNavigationBar];
+    [self setupCart];
 }
 
 #pragma mark - Private Methods
 
+- (void)setupCart{
+    NSArray *products = [[CartManager sharedInstance] getProductsInCart];
+    NSMutableArray *tableData = [@[] mutableCopy];
+    for (NSDictionary *productData in products) {
+        ProductEntity *product = [[ProductEntity alloc] initWithProductDictionaryData:productData];
+        NSDictionary *dataElement = @{KEY_PRODUCT : product, KEY_QUANTITY : [productData objectForKey:COLUMN_CART_QUANTITY]};
+        [tableData addObject:dataElement];
+    }
+    NSLog(@"%@", products);
+}
+
 - (void)initViewItems{
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+//    self.tableView.rowHeight = UITableViewAutomaticDimension;
+//    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    pickerNumberOfRows = 1;
 }
 
 - (void)setViewControllerNavigationBar{
@@ -44,14 +64,24 @@
     }];
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - UIPickerViewDataSource Methods
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    return 1;
 }
-*/
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+    return pickerNumberOfRows;
+}
+
+#pragma mark - UIPickerViewDelegate Methods
+
+// returns width of column and height of row for each component.
+//- (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component;
+//- (CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component;
+
+- (nullable NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    return [NSString stringWithFormat:@"%ld", (long)row];
+}
 
 @end
