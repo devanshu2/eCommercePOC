@@ -56,6 +56,9 @@
         sqlQuery = [NSString stringWithFormat:@"select (max(%@)+1) as neworder from %@", COLUMN_CART_ORDER, TABLE_CART];
         int newOrder = 0;
         NSArray *orderData = [dbMgr loadDataFromDB:sqlQuery];
+        if ([orderData count]) {
+            newOrder = [[[orderData firstObject] objectForKey:@"neworder"] intValue];
+        }
         sqlQuery = [NSString stringWithFormat:@"INSERT INTO %@(%@, %@, %@) VALUES(%d,%d,%d)", TABLE_CART, COLUMN_CART_PRODUCT_ID, COLUMN_CART_QUANTITY, COLUMN_CART_ORDER, product.productID, quantity, newOrder];
         dbMgr.lastInsertedRowID = 0;
         [dbMgr executeQuery:sqlQuery];
