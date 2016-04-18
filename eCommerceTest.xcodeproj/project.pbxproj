@@ -44,6 +44,9 @@
 		42DB5A9C1CB96A7C00D4F4D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42DB5A9A1CB96A7C00D4F4D9 /* LaunchScreen.storyboard */; };
 		42DB5AAB1CB96B3B00D4F4D9 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 42DB5AAA1CB96B3B00D4F4D9 /* DBManager.m */; };
 		42DB5AAE1CB97EC800D4F4D9 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 42DB5AAD1CB97EC800D4F4D9 /* libsqlite3.tbd */; };
+		DB95DA441CC501FC00299D12 /* EComButton.m in Sources */ = {isa = PBXBuildFile; fileRef = DB95DA431CC501FC00299D12 /* EComButton.m */; };
+		DB95DA4A1CC51B4000299D12 /* CartFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = DB95DA491CC51B4000299D12 /* CartFooterView.m */; };
+		DB95DA4C1CC51B4B00299D12 /* CartFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB95DA4B1CC51B4B00299D12 /* CartFooterView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -116,6 +119,11 @@
 		42DB5AAA1CB96B3B00D4F4D9 /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
 		42DB5AAC1CB96BA500D4F4D9 /* constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
 		42DB5AAD1CB97EC800D4F4D9 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		DB95DA421CC501FC00299D12 /* EComButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EComButton.h; sourceTree = "<group>"; };
+		DB95DA431CC501FC00299D12 /* EComButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EComButton.m; sourceTree = "<group>"; };
+		DB95DA481CC51B4000299D12 /* CartFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartFooterView.h; sourceTree = "<group>"; };
+		DB95DA491CC51B4000299D12 /* CartFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartFooterView.m; sourceTree = "<group>"; };
+		DB95DA4B1CC51B4B00299D12 /* CartFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CartFooterView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +179,9 @@
 				420C81651CBFEBF300F69FA2 /* CartNavItem.h */,
 				420C81661CBFEBF300F69FA2 /* CartNavItem.m */,
 				420C81681CBFEC0400F69FA2 /* CartNavItem.xib */,
+				DB95DA481CC51B4000299D12 /* CartFooterView.h */,
+				DB95DA491CC51B4000299D12 /* CartFooterView.m */,
+				DB95DA4B1CC51B4B00299D12 /* CartFooterView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -220,6 +231,7 @@
 			children = (
 				420C811C1CBF980000F69FA2 /* SDWebImage */,
 				420C814E1CBF982900F69FA2 /* ImageIO.framework */,
+				DB95DA451CC5020400299D12 /* EComButton */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -334,6 +346,15 @@
 			path = DBManager;
 			sourceTree = "<group>";
 		};
+		DB95DA451CC5020400299D12 /* EComButton */ = {
+			isa = PBXGroup;
+			children = (
+				DB95DA421CC501FC00299D12 /* EComButton.h */,
+				DB95DA431CC501FC00299D12 /* EComButton.m */,
+			);
+			name = EComButton;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -394,6 +415,7 @@
 				42DB5A9C1CB96A7C00D4F4D9 /* LaunchScreen.storyboard in Resources */,
 				42DB5A991CB96A7C00D4F4D9 /* Assets.xcassets in Resources */,
 				420EEDD31CBA37FE00348AF9 /* sqlAppDB.sqlite in Resources */,
+				DB95DA4C1CC51B4B00299D12 /* CartFooterView.xib in Resources */,
 				42DB5A971CB96A7C00D4F4D9 /* Main.storyboard in Resources */,
 				420C81691CBFEC0400F69FA2 /* CartNavItem.xib in Resources */,
 				420C81191CBF7ADC00F69FA2 /* HomeProductListTableViewCell.xib in Resources */,
@@ -414,6 +436,7 @@
 				420C813F1CBF980000F69FA2 /* NSData+ImageContentType.m in Sources */,
 				420C81411CBF980000F69FA2 /* SDWebImageCompat.m in Sources */,
 				420C814D1CBF980000F69FA2 /* UIView+WebCacheOperation.m in Sources */,
+				DB95DA4A1CC51B4000299D12 /* CartFooterView.m in Sources */,
 				420C814A1CBF980000F69FA2 /* UIImage+WebP.m in Sources */,
 				420C81141CBF5D3800F69FA2 /* Products.m in Sources */,
 				420C814B1CBF980000F69FA2 /* UIImageView+HighlightedWebCache.m in Sources */,
@@ -432,6 +455,7 @@
 				420C815C1CBFBD6F00F69FA2 /* ProductDetailViewController.m in Sources */,
 				42DB5A8E1CB96A7C00D4F4D9 /* main.m in Sources */,
 				42DB5AAB1CB96B3B00D4F4D9 /* DBManager.m in Sources */,
+				DB95DA441CC501FC00299D12 /* EComButton.m in Sources */,
 				420C81481CBF980000F69FA2 /* UIImage+GIF.m in Sources */,
 				420C81431CBF980000F69FA2 /* SDWebImageDownloader.m in Sources */,
 				420C814C1CBF980000F69FA2 /* UIImageView+WebCache.m in Sources */,

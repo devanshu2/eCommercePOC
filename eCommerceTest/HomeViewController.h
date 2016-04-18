@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Products.h"
+#import "CartViewController.h"
 
-@interface HomeViewController : UITableViewController
-
+@interface HomeViewController : UITableViewController<CartViewProductDelegate>
 
 @end
 

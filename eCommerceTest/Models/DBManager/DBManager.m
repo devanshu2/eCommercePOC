@@ -1,10 +1,11 @@
 //
 //  DBManager.m
-//  SQLite3DBSample
+//  eCommerceTest
 //
-//  Created by Gabriel Theodoropoulos on 25/6/14.
-//  Copyright (c) 2014 Appcoda. All rights reserved.
+//  Created by Devanshu Saini on 09/04/16.
+//  Copyright © 2016 Devenshu Saini. All rights reserved.
 //
+
 
 #import "DBManager.h"
 #import <sqlite3.h>

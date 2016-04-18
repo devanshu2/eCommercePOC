@@ -121,10 +121,21 @@ static NSString *cellIdentifier = @"HomeProductList";
         ProductDetailViewController *productDetailController = segue.destinationViewController;
         productDetailController.theProduct = (ProductEntity*)sender;
     }
+    else if ([[segue identifier] isEqualToString:@"modalSegue1"])
+    {
+        CartViewController *cartViewController = segue.destinationViewController;
+        cartViewController.delegate = self;
+    }
 }
 
 - (void)presentModalOfCart{
     [self performSegueWithIdentifier:@"modalSegue1" sender:nil];
+}
+
+#pragma mark - CartViewProductDelegate Methods
+
+- (void)moveToProductPageForProduct:(ProductEntity*)product{
+    
 }
 
 @end

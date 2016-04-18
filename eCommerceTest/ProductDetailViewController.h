@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "ProductEntity.h"
+#import "CartViewController.h"
 
-@interface ProductDetailViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
+@interface ProductDetailViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, CartViewProductDelegate>
 
 @property (nonatomic, strong) IBOutlet UITableView *theTable;
 @property (nonatomic, weak) IBOutlet UIButton *addToCartButton;
