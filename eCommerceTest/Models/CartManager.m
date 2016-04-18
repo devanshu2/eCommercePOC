@@ -56,9 +56,6 @@
         sqlQuery = [NSString stringWithFormat:@"select (max(%@)+1) as neworder from %@", COLUMN_CART_ORDER, TABLE_CART];
         int newOrder = 0;
         NSArray *orderData = [dbMgr loadDataFromDB:sqlQuery];
-        if (orderData.count) {
-            NSLog(@"%@", [orderData firstObject]);
-        }
         sqlQuery = [NSString stringWithFormat:@"INSERT INTO %@(%@, %@, %@) VALUES(%d,%d,%d)", TABLE_CART, COLUMN_CART_PRODUCT_ID, COLUMN_CART_QUANTITY, COLUMN_CART_ORDER, product.productID, quantity, newOrder];
         dbMgr.lastInsertedRowID = 0;
         [dbMgr executeQuery:sqlQuery];
@@ -91,9 +88,7 @@
     DBManager *dbMgr = [DBManager sharedInstance];
     dbMgr.affectedRows = 0;
     NSString *sqlQuery = [NSString stringWithFormat:@"delete from %@ where 1=1", TABLE_CART];
-    NSLog(@"%@", sqlQuery);
     [dbMgr executeQuery:sqlQuery];
-    NSLog(@"deleted products from cart: %d", dbMgr.affectedRows);
     [self updateCartCountToObservers];
 }
 

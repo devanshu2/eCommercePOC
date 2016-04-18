@@ -123,8 +123,13 @@ static NSString *cellIdentifier = @"HomeProductList";
     }
     else if ([[segue identifier] isEqualToString:@"modalSegue1"])
     {
-        CartViewController *cartViewController = segue.destinationViewController;
-        cartViewController.delegate = self;
+        if ([segue.destinationViewController isKindOfClass:[UINavigationController class]]) {
+            UINavigationController* navController = segue.destinationViewController;
+            if ([navController.childViewControllers lastObject]) {
+                CartViewController *cartViewController = [navController.childViewControllers lastObject];
+                cartViewController.delegate = self;
+            }
+        }
     }
 }
 
@@ -135,7 +140,7 @@ static NSString *cellIdentifier = @"HomeProductList";
 #pragma mark - CartViewProductDelegate Methods
 
 - (void)moveToProductPageForProduct:(ProductEntity*)product{
-    
+    [self performSegueWithIdentifier:@"productDetailSegue" sender:product];
 }
 
 @end

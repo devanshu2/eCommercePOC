@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CIn-lB-Kqw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CIn-lB-Kqw">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
@@ -66,7 +66,7 @@
                                         <rect key="frame" x="0.0" y="92" width="600" height="201"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wPC-3l-C4F" id="2yD-IB-wfl">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="200.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8iY-kw-VBf">
@@ -88,13 +88,13 @@
                                         <rect key="frame" x="0.0" y="293" width="600" height="41"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eWw-la-GwG" id="KrR-5T-OLc">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="40"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="40.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u0D-xJ-byO">
                                                     <rect key="frame" x="10" y="11" width="580" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="mV3-Cq-eug"/>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="CiB-tC-7j5"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -102,10 +102,10 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="u0D-xJ-byO" firstAttribute="top" secondItem="KrR-5T-OLc" secondAttribute="top" constant="10" id="2L2-ND-QCq"/>
-                                                <constraint firstAttribute="bottom" secondItem="u0D-xJ-byO" secondAttribute="bottom" constant="10" id="Gqt-mw-y2m"/>
-                                                <constraint firstItem="u0D-xJ-byO" firstAttribute="leading" secondItem="KrR-5T-OLc" secondAttribute="leading" constant="10" id="X3o-Fu-2xb"/>
-                                                <constraint firstAttribute="trailing" secondItem="u0D-xJ-byO" secondAttribute="trailing" constant="10" id="cc1-cg-iFM"/>
+                                                <constraint firstAttribute="trailing" secondItem="u0D-xJ-byO" secondAttribute="trailing" constant="10" id="Pqw-ei-8FQ"/>
+                                                <constraint firstItem="u0D-xJ-byO" firstAttribute="leading" secondItem="KrR-5T-OLc" secondAttribute="leading" constant="10" id="TDM-cD-ei9"/>
+                                                <constraint firstAttribute="bottom" secondItem="u0D-xJ-byO" secondAttribute="bottom" constant="8.5" id="Vh8-2k-Nvv"/>
+                                                <constraint firstItem="u0D-xJ-byO" firstAttribute="top" secondItem="KrR-5T-OLc" secondAttribute="top" constant="11" id="yI8-Cn-o9n"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -284,7 +284,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="160"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="glK-m9-D1U" id="O5j-Qx-EV5">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="159"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="159.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" tag="11" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qI0-PF-G7x">
@@ -552,6 +552,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="RF7-2c-k2b"/>
+        <segue reference="A79-ob-JjK"/>
     </inferredMetricsTieBreakers>
 </document>

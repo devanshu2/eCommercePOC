@@ -75,9 +75,13 @@ static NSString *cellIdentifierBasic = @"cellIdentifierBasic";
 {
     if ([[segue identifier] isEqualToString:@"modalSegue2"])
     {
-        CartViewController *theCartViewController = segue.destinationViewController;
-        [theCartViewController setDelegate:self];
-        NSLog(@"dfd");
+        if ([segue.destinationViewController isKindOfClass:[UINavigationController class]]) {
+            UINavigationController* navController = segue.destinationViewController;
+            if ([navController.childViewControllers lastObject]) {
+                CartViewController *cartViewController = [navController.childViewControllers lastObject];
+                cartViewController.delegate = self;
+            }
+        }
     }
 }
 
@@ -168,6 +172,9 @@ static NSString *cellIdentifierBasic = @"cellIdentifierBasic";
 
 - (void)moveToProductPageForProduct:(ProductEntity*)product{
     _theProduct = product;
+    [self setViewControllerNavigationBar];
+    [self updateViewOnAppearing];
+    [_theTable reloadData];
 }
 
 @end

@@ -22,6 +22,6 @@
 @property (strong, nonatomic) IBOutlet UIPickerView *quantityPicker;
 @property (strong, nonatomic) IBOutlet UIButton *quantityPickerUpdate;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *pickerViewBottomCons;
-@property (nonatomic, weak) id <CartViewProductDelegate> delegate;
+@property (nonatomic, assign) id <CartViewProductDelegate> delegate;
 
 @end
